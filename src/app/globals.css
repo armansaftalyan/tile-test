@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-medium.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body {
+    @apply m-0 bg-paper font-sans text-ink antialiased;
+  }
+  button,
+  a,
+  input {
+    @apply touch-manipulation;
+  }
+  button,
+  a {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input::placeholder {
+    @apply text-ink/45;
+  }
+  ::selection {
+    @apply bg-ochre/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
